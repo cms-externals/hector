@@ -64,7 +64,8 @@ const double BE=7000.;
 //#define STY 0.
 #define STY 30.23      
    /// beam dispersion
-#define D   120000.  
+//#define D   120000.
+const double D=120000.;
 	/// half crossing angle at IP [\f$ \mu \f$RAD]
 #define CRANG 142.5 
 
