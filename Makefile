@@ -109,7 +109,13 @@ endif
 # ----- make libHector.so -----
 $(LIBFULLNAME): $(OBJECTS)
 	@echo Making $@ 
-	@g++ -shared $(ROOTLIBS) $(WARNINGS) -o $@ -Wl,-soname,$@ $(addprefix $(OBJ),$(OBJECTS)) $(OPTIMIZE)
+	@case `uname` in \
+	  Darwin) \
+	   g++ -shared $(ROOTLIBS) $(WARNINGS) -o $@ $(addprefix $(OBJ),$(OBJECTS)) $(OPTIMIZE) ;; \
+	  Linux) \
+	   g++ -shared $(ROOTLIBS) $(WARNINGS) -o $@ -Wl,-soname,$@ $(addprefix $(OBJ),$(OBJECTS)) $(OPTIMIZE) ;; \
+	esac
+		
 	@strip -s $@
 	@mv -f $@ $(LIB) 
 	@echo Done : `ls $(LIB)lib*`
