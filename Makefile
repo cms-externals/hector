@@ -116,6 +116,7 @@ $(LIBFULLNAME): $(OBJECTS)
 	   g++ -shared $(ROOTLIBS) $(WARNINGS) -o $@ -Wl,-soname,$@ $(addprefix $(OBJ),$(OBJECTS)) $(OPTIMIZE) ;; \
 	esac
 		
+	@strip -s $@
 	@mv -f $@ $(LIB) 
 	@echo Done : `ls $(LIB)lib*`
 	@echo
