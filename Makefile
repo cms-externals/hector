@@ -51,7 +51,7 @@ LIBRARY= Hector
 LIBFULLNAME = $(addprefix lib,$(addsuffix $(LEXT),$(LIBRARY))) 
 # ROOTCFLAGS & ROOTLIBS  flags needed from ROOT for the compilation command
 ROOTCFLAGS= -fPIC $(shell root-config --cflags) 
-ROOTLIBS= $(shell root-config --libs --glibs)
+ROOTLIBS= $(shell root-config --libs)
 # HEADERS  List of .h files, without path
 HEADERS= $(notdir $(wildcard $(INC)*h))
 # SOURCES  List of .cc files, without path ; this syntax insures there is one .cc file per .h file
